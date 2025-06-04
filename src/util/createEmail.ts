@@ -27,18 +27,20 @@ export async function createEmail(company: Company) {
           - If the company is a software business, use technical language and explicitly include the sentence: 
             "We have a long history of investing in software businesses in Australia and New Zealand."
           - If the company is in a highly regulated industry, mention Everyday Capital's experience helping such businesses.
-          - Note: it is possible that a company is both a software business and in a regulated industry, so consider this case.
-
+          - Note: it is possible that a company is both a software business and in a regulated industry, so consider this case.`,
+      },
+      {
+        role: "system",
+        content: dedent`
         Important:
-          - Avoid the following LLM giveaways at all costs:
-            - The "Subject:" line as this is the body of the email
-            - Double hyphens “—”
+          - Please avoid including the following at all costs:
+            - "Subject:" line as this is the body of the email
+            - double hyphens “—”
             - Words like “Furthermore”, “Additionally” at sentence starts
             - The word “fantastic” when talking about the opportunity
-            - Placeholders like "[Your Name]" as this is not a template, but an actual email
+            - Including placeholders like "[Your Name]" as this is not a template, but an actual email
           - Ensure that under no circumstances does an email include the above items
-
-        The tone should be short, friendly, and professional. Think of how a real investor might write a cold email: clear, respectful, no fluff.`,
+        `,
       },
       {
         role: "user",
